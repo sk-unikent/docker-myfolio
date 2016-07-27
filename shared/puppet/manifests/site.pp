@@ -17,7 +17,7 @@ node 'default'
 
         '/var/www/vhosts/myfolio-dev.kent.ac.uk/public/myfolio':
             ensure => link,
-            target => '/data/myfolio';
+            target => '/data/myfolio/htdocs';
 
         '/var/www/vhosts/myfolio-dev.kent.ac.uk/public/_sp':
             ensure => link,
