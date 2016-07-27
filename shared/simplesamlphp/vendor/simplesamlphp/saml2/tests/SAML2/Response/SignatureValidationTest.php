@@ -28,7 +28,7 @@ class SAML2_Response_SignatureValidationTest extends PHPUnit_Framework_TestCase
     /**
      * @var string
      */
-    private $currentDestination = 'http://moodle.bridge.feide.no/simplesaml/saml2/sp/AssertionConsumerService.php';
+    private $currentDestination = 'http://myfolio.bridge.feide.no/simplesaml/saml2/sp/AssertionConsumerService.php';
 
     /**
      * We mock the actual assertion processing as that is not what we want to test here. Since the assertion processor
@@ -49,7 +49,7 @@ class SAML2_Response_SignatureValidationTest extends PHPUnit_Framework_TestCase
         $this->identityProviderConfiguration
             = new SAML2_Configuration_IdentityProvider(array('certificateData' => $matches[1]));
         $this->serviceProviderConfiguration
-            = new SAML2_Configuration_ServiceProvider(array('entityId' => 'urn:mace:feide.no:services:no.feide.moodle'));
+            = new SAML2_Configuration_ServiceProvider(array('entityId' => 'urn:mace:feide.no:services:no.feide.myfolio'));
     }
 
     /**

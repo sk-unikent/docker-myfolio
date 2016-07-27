@@ -18,7 +18,7 @@ RUN ln -s /usr/bin/php70 /usr/bin/php && \
     ln -s /usr/bin/php70-cgi /usr/bin/php-cgi && \
     ln -s /usr/bin/php70-pear /usr/bin/php-pear && \
     ln -s /usr/bin/php70-phar /usr/bin/php-phar
-ADD ./shared/simplesamlphp /var/www/vhosts/moodle-dev.kent.ac.uk/sp/simplesamlphp
+ADD ./shared/simplesamlphp /var/www/vhosts/myfolio-dev.kent.ac.uk/sp/simplesamlphp
 ADD ./shared/puppet /puppet
 RUN yum install -y puppet && \
     puppet apply --modulepath=/puppet/modules /puppet/manifests/site.pp && \

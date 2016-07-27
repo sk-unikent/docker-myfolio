@@ -10,7 +10,7 @@ class supervisord (
     file {
         '/var/log/supervisor':
             ensure  => directory,
-            owner   => 'w3moodle',
+            owner   => 'w3myfolio',
             group   => 'pkg',
             mode    => 0755;
 
@@ -24,7 +24,7 @@ class supervisord (
             mode    => 0644;
     }
 
-    define worker ($workername = $title, $command, $runas = 'w3moodle', $priority = 1024, $numprocs = 1, $startsecs = 1) {
+    define worker ($workername = $title, $command, $runas = 'w3myfolio', $priority = 1024, $numprocs = 1, $startsecs = 1) {
         file {
             "/etc/supervisord.d/worker-$workername.conf":
                 ensure  => present,

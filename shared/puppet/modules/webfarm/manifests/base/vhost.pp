@@ -1,4 +1,4 @@
-define webfarm::base::vhost($vhost = $title, $owner = 'w3admin', $writeable = 'w3moodle') {
+define webfarm::base::vhost($vhost = $title, $owner = 'w3admin', $writeable = 'w3myfolio') {
     file {
         "/var/www/vhosts/${vhost}":
             ensure => directory,

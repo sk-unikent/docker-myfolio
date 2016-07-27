@@ -29,7 +29,7 @@ class SAML2_ResponseTest extends PHPUnit_Framework_TestCase
                 InResponseTo="_bec424fa5103428909a30ff1e31168327f79474984"
                 Version="2.0"
                 IssueInstant="2007-12-10T11:39:48Z"
-                Destination="http://moodle.bridge.feide.no/simplesaml/saml2/sp/AssertionConsumerService.php">
+                Destination="http://myfolio.bridge.feide.no/simplesaml/saml2/sp/AssertionConsumerService.php">
     <saml:Issuer>max.feide.no</saml:Issuer>
     <samlp:Extensions>
         <myns:AttributeList xmlns:myns="urn:mynamespace">
@@ -46,14 +46,14 @@ class SAML2_ResponseTest extends PHPUnit_Framework_TestCase
                     IssueInstant="2007-12-10T11:39:48Z">
         <saml:Issuer>max.feide.no</saml:Issuer>
         <saml:Subject>
-            <saml:NameID NameQualifier="max.feide.no" SPNameQualifier="urn:mace:feide.no:services:no.feide.moodle" Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent">UB/WJAaKAPrSHbqlbcKWu7JktcKY</saml:NameID>
+            <saml:NameID NameQualifier="max.feide.no" SPNameQualifier="urn:mace:feide.no:services:no.feide.myfolio" Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent">UB/WJAaKAPrSHbqlbcKWu7JktcKY</saml:NameID>
             <saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
-                <saml:SubjectConfirmationData NotOnOrAfter="2007-12-10T19:39:48Z" InResponseTo="_bec424fa5103428909a30ff1e31168327f79474984" Recipient="http://moodle.bridge.feide.no/simplesaml/saml2/sp/AssertionConsumerService.php"/>
+                <saml:SubjectConfirmationData NotOnOrAfter="2007-12-10T19:39:48Z" InResponseTo="_bec424fa5103428909a30ff1e31168327f79474984" Recipient="http://myfolio.bridge.feide.no/simplesaml/saml2/sp/AssertionConsumerService.php"/>
             </saml:SubjectConfirmation>
         </saml:Subject>
         <saml:Conditions NotBefore="2007-12-10T11:29:48Z" NotOnOrAfter="2007-12-10T19:39:48Z">
             <saml:AudienceRestriction>
-                <saml:Audience>urn:mace:feide.no:services:no.feide.moodle</saml:Audience>
+                <saml:Audience>urn:mace:feide.no:services:no.feide.myfolio</saml:Audience>
             </saml:AudienceRestriction>
         </saml:Conditions>
         <saml:AuthnStatement AuthnInstant="2007-12-10T11:39:48Z" SessionIndex="s259fad9cad0cf7d2b3b68f42b17d0cfa6668e0201">

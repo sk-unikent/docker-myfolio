@@ -1,14 +1,14 @@
 node 'default'
 {
-    include moodle::base
+    include myfolio::base
 
     file {
-        '/var/www/vhosts/moodle-dev.kent.ac.uk/public/testing':
+        '/var/www/vhosts/myfolio-dev.kent.ac.uk/public/testing':
             ensure => link,
             target => '/data';
 
-        '/var/www/vhosts/moodle-dev.kent.ac.uk/writable/data/testing':
+        '/var/www/vhosts/myfolio-dev.kent.ac.uk/writable/data/testing':
             ensure => directory,
-            require => File['/var/www/vhosts/moodle-dev.kent.ac.uk/writable/data'];
+            require => File['/var/www/vhosts/myfolio-dev.kent.ac.uk/writable/data'];
     }
 }
