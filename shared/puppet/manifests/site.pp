@@ -1,7 +1,6 @@
 node 'default'
 {
     include myfolio::base
-    include supervisord
 
     service {
         ['nginx', 'crond', 'php56-php-fpm']:
@@ -34,25 +33,5 @@ node 'default'
         '/opt/remi/php56/root/etc/php-fpm.d/myfolio-dev.kent.ac.uk.conf':
             ensure => present,
             source => 'puppet:///modules/webfarm/myfolio-pool.conf';
-    }
-
-    cron {
-        'current-demo':
-            command => '/usr/bin/php /var/www/vhosts/myfolio-dev.kent.ac.uk/public/current/admin/cli/cron.php',
-            user    => 'w3myfolio',
-            hour    => '*',
-            minute  => '*';
-
-        'future-demo':
-            command => '/usr/bin/php /var/www/vhosts/myfolio-dev.kent.ac.uk/public/future/admin/cli/cron.php',
-            user    => 'w3myfolio',
-            hour    => '*',
-            minute  => '*';
-    }
-
-    supervisord::worker {
-        'current':
-            command => '/usr/bin/php /var/www/vhosts/myfolio-dev.kent.ac.uk/public/current/local/kent/cli/worker.php',
-            startsecs => 5;
     }
 }

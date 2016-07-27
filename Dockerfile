@@ -2,11 +2,9 @@ FROM skylarkelty/centos:latest
 MAINTAINER "Skylar Kelty" <s.kelty@kent.ac.uk>
 ADD ./shared/files/remi.repo /etc/yum.repos.d/remi.repo
 ADD ./shared/files/nginx.repo /etc/yum.repos.d/nginx.repo
-ADD ./shared/files/supervisord.service /etc/systemd/system/multi-user.target.wants/supervisord.service
 RUN yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm \
                    nginx cronie python-setuptools \
                    && yum clean all
-RUN easy_install supervisor
 RUN yum-config-manager --enable remi-php56 && \
     yum install -y php56 php56-php-fpm php56-php-opcache php56-php-cli \
     php56-php-gd php56-php-pdo php56-php-xml php56-php-intl php56-php-pear \
