@@ -15,13 +15,9 @@ node 'default'
             ensure => present,
             source => 'puppet:///modules/webfarm/myfolio-dev.kent.ac.uk.conf';
 
-        '/var/www/vhosts/myfolio-dev.kent.ac.uk/public/current':
+        '/var/www/vhosts/myfolio-dev.kent.ac.uk/public/myfolio':
             ensure => link,
-            target => '/data/current';
-
-        '/var/www/vhosts/myfolio-dev.kent.ac.uk/public/future':
-            ensure => link,
-            target => '/data/future';
+            target => '/data/myfolio';
 
         '/var/www/vhosts/myfolio-dev.kent.ac.uk/public/_sp':
             ensure => link,
