@@ -19,6 +19,10 @@ node 'default'
             ensure => link,
             target => '/data/myfolio/htdocs';
 
+        '/var/www/vhosts/myfolio-dev.kent.ac.uk/public/employability':
+            ensure => link,
+            target => '/data/eps/public';
+
         '/var/www/vhosts/myfolio-dev.kent.ac.uk/public/_sp':
             ensure => link,
             target => '/var/www/vhosts/myfolio-dev.kent.ac.uk/sp/simplesamlphp/www';
