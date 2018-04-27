@@ -20,8 +20,8 @@ define webfarm::base::vhost($vhost = $title, $owner = 'w3admin', $writeable = 'w
             "/var/www/vhosts/${vhost}/writable/wsdlcache",
             "/var/www/vhosts/${vhost}/writable/logs",
             "/var/www/vhosts/${vhost}/writable/cache",
-            "/var/www/vhosts/${vhost}/writable/cache/current",
-            "/var/www/vhosts/${vhost}/writable/cache/future",
+            "/var/www/vhosts/${vhost}/writable/cache/myfolio",
+            "/var/www/vhosts/${vhost}/writable/cache/eps",
             "/var/www/vhosts/${vhost}/writable/data"
         ]:
             ensure => directory,

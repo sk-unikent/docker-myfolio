@@ -4,7 +4,7 @@ node 'default'
     include supervisord
 
     service {
-        ['nginx', 'crond', 'php70-php-fpm']:
+        ['nginx', 'crond', 'php71-php-fpm']:
             enable => true;
     }
 
@@ -16,43 +16,32 @@ node 'default'
             ensure => present,
             source => 'puppet:///modules/webfarm/myfolio-dev.kent.ac.uk.conf';
 
-        '/var/www/vhosts/myfolio-dev.kent.ac.uk/public/current':
+        '/var/www/vhosts/myfolio-dev.kent.ac.uk/public/myfolio':
             ensure => link,
-            target => '/data/current';
+            target => '/data/myfolio/htdocs';
 
-        '/var/www/vhosts/myfolio-dev.kent.ac.uk/public/future':
+        '/var/www/vhosts/myfolio-dev.kent.ac.uk/public/employability':
             ensure => link,
-            target => '/data/future';
+            target => '/data/eps/public';
 
         '/var/www/vhosts/myfolio-dev.kent.ac.uk/public/_sp':
             ensure => link,
             target => '/var/www/vhosts/myfolio-dev.kent.ac.uk/sp/simplesamlphp/www';
 
-        '/etc/opt/remi/php70/php-fpm.d/www.conf':
+        '/etc/opt/remi/php71/php-fpm.d/www.conf':
             ensure => absent;
 
-        '/etc/opt/remi/php70/php-fpm.d/myfolio-dev.kent.ac.uk.conf':
+        '/etc/opt/remi/php71/php-fpm.d/myfolio-dev.kent.ac.uk.conf':
             ensure => present,
             source => 'puppet:///modules/webfarm/myfolio-pool.conf';
     }
 
     cron {
-        'current-demo':
-            command => '/usr/bin/php /var/www/vhosts/myfolio-dev.kent.ac.uk/public/current/admin/cli/cron.php',
-            user    => 'w3myfolio',
-            hour    => '*',
-            minute  => '*';
-
-        'future-demo':
-            command => '/usr/bin/php /var/www/vhosts/myfolio-dev.kent.ac.uk/public/future/admin/cli/cron.php',
+        'myfolio':
+            command => '/usr/bin/php /var/www/vhosts/myfolio-dev.kent.ac.uk/public/htdocs/lib/cron.php',
             user    => 'w3myfolio',
             hour    => '*',
             minute  => '*';
     }
 
-    supervisord::worker {
-        'current':
-            command => '/usr/bin/php /var/www/vhosts/myfolio-dev.kent.ac.uk/public/current/local/kent/cli/worker.php',
-            startsecs => 5;
-    }
 }
