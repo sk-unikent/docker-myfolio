@@ -22,7 +22,7 @@ node 'default'
 
         '/var/www/vhosts/myfolio-dev.kent.ac.uk/public/employability':
             ensure => link,
-            target => '/data/eps/public';
+            target => '/data/employability/public';
 
         '/var/www/vhosts/myfolio-dev.kent.ac.uk/public/_sp':
             ensure => link,
