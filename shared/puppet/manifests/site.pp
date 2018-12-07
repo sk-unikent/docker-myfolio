@@ -4,7 +4,7 @@ node 'default'
     include supervisord
 
     service {
-        ['nginx', 'crond', 'php71-php-fpm']:
+        ['nginx', 'crond', 'php72-php-fpm']:
             enable => true;
     }
 
@@ -28,10 +28,10 @@ node 'default'
             ensure => link,
             target => '/var/www/vhosts/myfolio-dev.kent.ac.uk/sp/simplesamlphp/www';
 
-        '/etc/opt/remi/php71/php-fpm.d/www.conf':
+        '/etc/opt/remi/php72/php-fpm.d/www.conf':
             ensure => absent;
 
-        '/etc/opt/remi/php71/php-fpm.d/myfolio-dev.kent.ac.uk.conf':
+        '/etc/opt/remi/php72/php-fpm.d/myfolio-dev.kent.ac.uk.conf':
             ensure => present,
             source => 'puppet:///modules/webfarm/myfolio-pool.conf';
     }
